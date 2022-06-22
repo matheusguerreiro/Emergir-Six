@@ -1,0 +1,10 @@
+=begin 
+
+  relacionais
+    <, <=, >, >=, ==, !=
+
+  aritméticos
+    +, -, *, /, **, %
+
+=end
+
