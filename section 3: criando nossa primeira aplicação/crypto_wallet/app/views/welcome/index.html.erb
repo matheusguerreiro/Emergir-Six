@@ -1,9 +1,8 @@
 <h1>Seja Bem-vindo!</h1>
 <p>Data: <%= dataBr(Date.today) %></p>
-<ul>
-  <li>
-    <%= link_to "Cadastro de Moedas", coins_path %>
-  </li>
-</ul>
+
+<%= render "menu" %>
 
 <p>ambiente: <strong><%= ambienteRails %></strong></p>
+
+<p>uma variável de instância <%= @nome %></p>
