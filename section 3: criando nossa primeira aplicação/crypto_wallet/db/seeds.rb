@@ -6,24 +6,52 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'Creating Coins...'
+spinner = TTY::Spinner.new("[:spinner] creating coins...")
+spinner.auto_spin
 
-Coin.create!(
-  description: "Bitcoin",
-  acronym: "BTC",
-  url_image: "https://en.bitcoin.it/w/images/en/5/50/Bitcoin.png"
-)
+coins = [
+  {
+    description: "Bitcoin",
+    acronym: "BTC",
+    url_image: "https://en.bitcoin.it/w/images/en/5/50/Bitcoin.png"
+  },
+  {
+    description: "Ethereum",
+    acronym: "ETH",
+    url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/2074.png"
+  },
+  {
+    description: "Dash",
+    acronym: "DASH",
+    url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/131.png"
+  }
+]
 
-Coin.create!(
-  description: "Ethereum",
-  acronym: "ETH",
-  url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/2074.png"
-)
+coins.each do |coin|
+  spinner = TTY::Spinner.new("[:spinner] create #{coin[:description]}")
+  spinner.auto_spin
+  Coin.find_or_create_by!(coin)
+  spinner.success("(successful)")
+end
 
-Coin.create!(
-  description: "Dash",
-  acronym: "DASH",
-  url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/131.png"
-)
+=begin
+Coin.create!([
+  {
+    description: "Bitcoin",
+    acronym: "BTC",
+    url_image: "https://en.bitcoin.it/w/images/en/5/50/Bitcoin.png"
+  },
+  {
+    description: "Ethereum",
+    acronym: "ETH",
+    url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/2074.png"
+  },
+  {
+    description: "Dash",
+    acronym: "DASH",
+    url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/131.png"
+  }
+]) 
+=end
 
-puts 'Successfully created Coins'
+spinner.success("(successful)")
