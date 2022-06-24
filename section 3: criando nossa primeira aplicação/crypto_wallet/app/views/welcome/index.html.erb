@@ -1,5 +1,7 @@
 <h1>Seja Bem-vindo!</h1>
-<p>Data: <%= dataBr(Date.today) %></p>
+<p>Idioma: <%= locale %></p>
+<p>Data: <%= l(Date.today) %></p>
+<p><%=l Time.now, format: :personal%></p>
 
 <%= render "menu" %>
 

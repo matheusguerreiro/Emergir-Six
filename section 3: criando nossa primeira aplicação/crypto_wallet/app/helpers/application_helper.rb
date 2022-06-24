@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def locale
+    I18n.locale == :en ? 'USA' : 'Português do Brasil'
+  end
   def dataBr(data)
     data.strftime("%d/%m/%Y")
   end
