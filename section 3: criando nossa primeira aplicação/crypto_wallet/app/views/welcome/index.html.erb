@@ -1,10 +1,13 @@
-<h1>Seja Bem-vindo!</h1>
-<p>Idioma: <%= locale %></p>
-<p>Data: <%= l(Date.today) %></p>
-<p><%=l Time.now, format: :personal%></p>
-
-<%= render "menu" %>
-
-<p>ambiente: <strong><%= ambienteRails %></strong></p>
-
-<p>uma variável de instância <%= @nome %></p>
+<div class="wi">
+  <h3 class="mt-3">Bem-vindo!</h3>
+  <hr>
+  <p>Idioma: <strong><%= locale %></strong></p>
+  <p>Data: <%= l(Date.today) %></p>
+  <p>data e hora Brasileira: <strong><%=l Time.now, format: :personal%></strong></p>
+  
+  <%= render "menu" %>
+  
+  <p class="mt-3">em qual ambiente estou? <strong><%= ambienteRails %></strong></p>
+  
+  <p>uma variável de instância (digite: ?nome="algumNome"): <strong><%= @nome %></strong></p>
+</div>

@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Coins</h1>
+<h2>Coins</h2>
 
-<h3><%= cookies[:curso] %></h3>
+<p><strong><%= cookies[:curso] %></strong> <- esse vem dos cookies...</p>
 
-<table>
+<table class="table table-warning table-hover">
   <thead>
     <tr>
       <th>Description</th>
@@ -30,7 +30,5 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Coin', new_coin_path %>
-<%= link_to 'Welcome', welcome_index_path %>
+<%= link_to 'New Coin', new_coin_path, class:"btn btn-success me-2" %>
+<%= link_to 'Welcome', welcome_index_path, class:"btn btn-warning" %>

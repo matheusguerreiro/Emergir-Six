@@ -5,20 +5,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'scaffolds', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header style="background-color: black; color: white; padding-left: 4px">
-      cabeçalho <%= params[:controller] %>
+    <header class="bg-dark text-light pt-3 pb-1 ps-2">
+      <h1>Crypto Wallet</h1>
+      <p>em qual controller estou? <strong><%= params[:controller] %></strong></p>
     </header>
-    <%= yield %>
-    <footer style="background-color: black; color: white; padding-left: 4px">
-      rodapé
+    <div class="container-fluid"><%= yield %></div>
+    <footer class="d-flex justify-content-center bg-secondary text-dark pt-3 pb-1 ps-2 mt-4">
+      <p><strong>footer</strong></p>
     </footer>
+    <script>$.notify("MGF", "success")</script>
   </body>
 </html>

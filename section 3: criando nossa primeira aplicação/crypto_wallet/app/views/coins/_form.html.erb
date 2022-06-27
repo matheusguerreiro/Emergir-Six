@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.label :description, class:"form-label" %>
+    <%= form.text_field :description, class:"form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :acronym %>
-    <%= form.text_field :acronym %>
+    <%= form.label :acronym, class:"form-label" %>
+    <%= form.text_field :acronym, class:"form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :url_image %>
-    <%= form.text_field :url_image %>
+    <%= form.label :url_image, class:"form-label" %>
+    <%= form.text_field :url_image, class:"form-control" %>
   </div>
 
   <div class="field">
-    <%= form.label :mining_type_id %>
-    <%= form.select("mining_type_id", @mining_type_options, {include_blank: 'Select'}) %>
+    <%= form.label :mining_type_id, class:"form-label" %>
+    <%= form.select("mining_type_id", @mining_type_options, {include_blank: 'Select'}, class:"form-control") %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-4">
+    <%= form.submit class:"btn btn-success" %>
   </div>
 <% end %>

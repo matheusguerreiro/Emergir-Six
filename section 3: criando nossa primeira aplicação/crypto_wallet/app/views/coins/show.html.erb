@@ -1,5 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<fieldset disabled="disabled">
+  <div>
+    <label for="disabledTextInput" class="form-label">Description:</label>
+    <input type="text" id="disabledTextInput" class="form-control" value="<%= @coin.description %>">
+  </div>
+  <div>
+    <label for="disabledTextInput" class="form-label">Acronym:</label>
+    <input type="text" id="disabledTextInput" class="form-control" value="<%= @coin.acronym %>">
+  </div>
+  <div>
+    <label for="disabledInput" class="form-label">Image:</label>
+    <div id="disabledInput" class="form-control">
+      <img src="<%= @coin.url_image %>" alt="" style="width: 35px; height: 35px">
+    </div>
+  </div>
+</fieldset>
+<!-- 
 <p>
   <strong>Description:</strong>
   <%= @coin.description %>
@@ -14,6 +31,6 @@
   <strong>Url image:</strong>
   <%= image_tag @coin.url_image, size: "25x25" %>
 </p>
-
-<%= link_to 'Edit', edit_coin_path(@coin) %> |
-<%= link_to 'Back', coins_path %>
+ -->
+<%= link_to 'Edit', edit_coin_path(@coin), class:"btn btn-info mt-2 me-1" %>
+<%= link_to 'Back', coins_path, class:"btn btn-warning mt-2" %>

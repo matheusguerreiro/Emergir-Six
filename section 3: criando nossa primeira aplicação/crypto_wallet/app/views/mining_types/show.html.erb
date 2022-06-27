@@ -1,5 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+<form>
+  <fieldset disabled>
+    <div>
+      <label for="disabledTextInput" class="form-label">Description:</label>
+      <input type="text" id="disabledTextInput" class="form-control" value="<%= @mining_type.description %>">
+    </div>
+    <div>
+      <label for="disabledTextInput" class="form-label">Acronym:</label>
+      <input type="text" id="disabledTextInput" class="form-control" value="<%= @mining_type.acronym %>">
+    </div>
+  </fieldset>
+</form>
+
+<!-- 
 <p>
   <strong>Description:</strong>
   <%= @mining_type.description %>
@@ -9,6 +23,7 @@
   <strong>Acronym:</strong>
   <%= @mining_type.acronym %>
 </p>
+ -->
 
-<%= link_to 'Edit', edit_mining_type_path(@mining_type) %> |
-<%= link_to 'Back', mining_types_path %>
+<%= link_to 'Edit', edit_mining_type_path(@mining_type), class:"btn btn-info mt-4 me-1" %>
+<%= link_to 'Back', mining_types_path, class:"btn btn-warning mt-4" %>

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Mining Types</h1>
+<h2>Mining Types</h2>
 
-<table>
+<table class="table table-warning table-hover">
   <thead>
     <tr>
       <th>Description</th>
@@ -24,7 +24,5 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Mining Type', new_mining_type_path %>
-<%= link_to 'Welcome', root_path %>
+<%= link_to 'New Mining Type', new_mining_type_path, class:"btn btn-success me-2" %>
+<%= link_to 'Welcome', root_path, class:"btn btn-warning" %>

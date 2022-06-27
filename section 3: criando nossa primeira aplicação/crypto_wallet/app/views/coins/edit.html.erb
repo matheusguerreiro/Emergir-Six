@@ -1,6 +1,7 @@
-<h1>Editing Coin</h1>
+<h2 class="mt-3">Editing Coin</h2>
+<hr>
 
 <%= render 'form', coin: @coin %>
 
-<%= link_to 'Show', @coin %> |
-<%= link_to 'Back', coins_path %>
+<%= link_to 'Show', @coin, class:"btn btn-info mt-2 me-1"%>
+<%= link_to 'Back', coins_path, class:"btn btn-warning mt-2" %>
