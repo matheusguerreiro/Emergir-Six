@@ -1,0 +1,8 @@
+* fluxo mvc - requisição -> controller -> model || requisição -> controller -> view
+* spring status || spring stop - para limpar aplicação rails em memória
+
+
+rails new time_to_answer || rails new nome_aplicação -T - para criar app sem geração de testes
+time_to_answer
+  rails g controller welcome index - para gerar a primeira página
+    time_to_answer/config/routes.rb - aqui para ajeitar a rota
