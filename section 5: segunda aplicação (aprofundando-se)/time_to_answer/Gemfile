@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+# esse inferno fica dando erro
 gem 'rails-i18n', '~> 5.1'
 
 # Use ActiveStorage variant
