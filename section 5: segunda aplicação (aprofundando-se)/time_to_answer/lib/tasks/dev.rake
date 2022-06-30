@@ -10,6 +10,7 @@ namespace :dev do
       show_spinner('db:migrate')
       show_spinner('dev:add_default_admin')
       show_spinner('dev:add_default_user')
+      show_spinner('dev:create_admins')
     end
   end
 
@@ -29,6 +30,17 @@ namespace :dev do
       password: DEFAULT_PASSWORD,
       password_confirmation: DEFAULT_PASSWORD
     )
+  end
+
+  desc "create 6 admins"
+  task create_admins: :environment do
+    6.times do |i|
+      Admin.create!(
+        email: Faker::Internet.email,
+        password: 123456,
+        password_confirmation: 123456
+      )
+    end
   end
 
   private

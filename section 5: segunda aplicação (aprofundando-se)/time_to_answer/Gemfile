@@ -29,6 +29,11 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'faker'
+
+# gem 'pry-rails'
+gem 'awesome_print'
+
 # esse inferno fica dando erro
 gem 'rails-i18n', '~> 5.1'
 
