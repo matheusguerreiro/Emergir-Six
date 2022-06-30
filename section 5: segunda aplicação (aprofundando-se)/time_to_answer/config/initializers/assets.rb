@@ -16,4 +16,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( admins_backoffice.js users_backoffice.js admins_backoffice.css site.css users_backoffice.css )
 
 # /lib/assets
-Rails.application.config.assets.precompile += %w( custom.min.js sb-admin-2.js custom.min.css sb-admin-2.css )
+Rails.application.config.assets.precompile += %w( custom.min.js sb-admin-2.js custom.min.css sb-admin-2.css img.jpg )
+
+# /vendor/assets
+Rails.application.config.assets.precompile += %w( jquery-v2.2.4/dist/jquery.min.js )
