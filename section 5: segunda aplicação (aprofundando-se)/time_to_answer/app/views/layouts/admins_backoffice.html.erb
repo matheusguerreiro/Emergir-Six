@@ -12,16 +12,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag 'application' %>
+    <%= stylesheet_link_tag 'admins_backoffice' %>
 
-    <!-- Custom fonts for this template Font Awesome Free 5.15.3-->
-    <!-- yarn add @fortawesome/fontawesome-free@5.15.3 -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
   </head>
 
   <body id="page-top">
@@ -413,21 +408,8 @@
       </div>
 
       <%= javascript_include_tag 'application' %>
-
-      <!-- Bootstrap v4.6.0 core JavaScript jQuery v3.6.0-->
-      <!-- yarn add jquery@3.6.0 -->
-      <!-- yarn add bootstrap@4.6.0 -->
-        <!-- yarn add popper.js@1.16.1 -->
-      <script src="vendor/jquery/jquery.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-      <!-- Core plugin JavaScript jQuery Easing v1.4.1-->
-      <!-- yarn add jquery.easing@1.4.1 -->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-      <!-- Custom scripts for all pages-->
-      <script src="js/sb-admin-2.min.js"></script>
-
+      <%= javascript_include_tag 'admins_backoffice' %>
+      
   </body>
 
 </html>
