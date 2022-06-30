@@ -40,18 +40,22 @@
 
               <!-- Nav Item - Dashboard -->
               <li class="nav-item">
-                  <a class="nav-link" href="index.html">
+                  <!-- <a class="nav-link" href="index.html"> -->
+                  <%= link_to admins_backoffice_welcome_index_path, class:"nav-link" do %>
                       <i class="fas fa-fw fa-tachometer-alt"></i>
                       <span>Dashboard</span></a>
+                  <% end %>
               </li>
 
               <!-- Divider -->
               <hr class="sidebar-divider my-0">
 
               <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <!-- <a class="nav-link" href="index.html"> -->
+                <%= link_to admins_backoffice_admins_index_path, class:"nav-link" do %>
                     <i class="fa fa-users"></i>
                     <span>Administradores</span></a>
+                <% end %>
               </li>
 
               <!-- Heading -->
