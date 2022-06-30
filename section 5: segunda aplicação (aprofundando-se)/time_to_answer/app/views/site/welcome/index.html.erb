@@ -1,18 +1,25 @@
-<div class="welcome_header">
+<div class="bg-secondary text-white px-3 pt-3 pb-1">
   <h1>Site::Welcome#index</h1>
-  <p>Find me in app/views/site/welcome/index.html.erb</p>
+  <p class="text-warning">Find me in app/views/site/welcome/index.html.erb</p>
 </div>
 
-<div class="states">
-  <% if user_signed_in? %>
-    <p>Usuário: <span class="logado">LOGADO</span> como <em><%= current_user.email %></em></p>
-  <% else %>
-    <p>Usuário: <span class="nao_logado">NÃO LOGADO</span></p>
-  <% end %>
+<div class="container-fluid bg-light pt-3">
+  <div class="">
+    <% if user_signed_in? %>
+      <p>Usuário: <span class="text-success">LOGADO</span> como <em class="text-success"><%= current_user.email %></em></p>
+    <% else %>
+      <p>Usuário: <span class="text-danger">NÃO LOGADO</span></p>
+    <% end %>
   
-  <% if admin_signed_in? %>
-    <p>Administrador: <span class="logado">LOGADO</span> como <em><%= current_admin.email %></em></p>
-  <% else %>
-    <p>Administrador: <span class="nao_logado">NÃO LOGADO</span></p>
-  <% end %>
+    <% if admin_signed_in? %>
+      <p>Administrador: <span class="text-success">LOGADO</span> como <em class="text-success"><%= current_admin.email %></em></p>
+    <% else %>
+      <p>Administrador: <span class="text-danger">NÃO LOGADO</span></p>
+    <% end %>
+  </div>
+  
+  <div class="pages">
+    <%= link_to "users_backoffice", users_backoffice_welcome_index_path, class:"btn btn-primary" %>
+    <%= link_to "admins_backoffice", admins_backoffice_welcome_index_path, class:"btn btn-danger" %>
+  </div>
 </div>

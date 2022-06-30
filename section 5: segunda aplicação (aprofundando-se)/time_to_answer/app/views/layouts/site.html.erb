@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="w-100 h-100">
   <head>
     <title>TimeToAnswer</title>
     <%= csrf_meta_tags %>
@@ -10,12 +10,12 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <header>
-      <h1>layout site</h1>
+  <body class="w-100 h-100 d-flex flex-column">
+    <header class="bg-dark pt-2 pb-1 d-flex justify-content-center">
+      <h1 class="text-white">layout site</h1>
     </header>
-    <main><%= yield %></main>
-    <footer>
+    <main class="flex-grow-1"><%= yield %></main>
+    <footer class="text-light bg-dark d-flex justify-content-center pt-3 pb-1">
       <p>app 2 Rails 5.2</p>
     </footer>
   </body>
