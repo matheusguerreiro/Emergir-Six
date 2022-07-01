@@ -16,6 +16,19 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
       render :edit
     end
   end
+
+  def new
+    @admin = Admin.new
+  end
+
+  def create
+    @admin = Admin.new(params_admin)
+    if @admin.save
+      redirect_to admins_backoffice_admins_path, notice: "admin Cadastrado!"
+    else
+      render :new
+    end
+  end
   
   private
   def password_verify
