@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     # resources :admins, except: [:destroy] # administradores
     resources :admins # todas as rotas
     resources :subjects # assuntos/áreas
+    resources :questions # perguntas
   end
   devise_for :users
   devise_for :admins
