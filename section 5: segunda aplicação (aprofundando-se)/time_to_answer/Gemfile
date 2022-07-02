@@ -31,10 +31,12 @@ gem 'devise'
 
 gem 'faker'
 
+gem 'kaminari'
+
 # gem 'pry-rails'
+
 gem 'awesome_print'
 
-# esse inferno fica dando erro
 gem 'rails-i18n', '~> 5.1'
 
 gem 'tty-spinner'
