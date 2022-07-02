@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     # resources :admins, only: [:index, :edit, :update, :new, :create] # administradores
     # resources :admins, except: [:destroy] # administradores
     resources :admins # todas as rotas
+    resources :subjects # assuntos/áreas
   end
   devise_for :users
   devise_for :admins
