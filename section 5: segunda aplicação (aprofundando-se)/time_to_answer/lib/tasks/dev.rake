@@ -1,6 +1,7 @@
 namespace :dev do
 
   DEFAULT_PASSWORD = 12345678
+  DEFAULT_FILES_PATH = File.join(Rails.root, 'lib', 'tmp')
 
   desc "Configura o ambiente de desenvolvimento"
   task setup: :environment do
@@ -11,6 +12,7 @@ namespace :dev do
       show_spinner('dev:add_default_admin')
       show_spinner('dev:add_default_user')
       show_spinner('dev:create_admins')
+      show_spinner('dev:create_default_subjects')
     end
   end
 
@@ -39,6 +41,18 @@ namespace :dev do
         email: Faker::Internet.email,
         password: 123456,
         password_confirmation: 123456
+      )
+    end
+  end
+
+  desc "create default subjects"
+  task create_default_subjects: :environment do
+    file_name = 'subjects.txt'
+    file_path = File.join(DEFAULT_FILES_PATH, file_name)
+
+    File.open(file_path, 'r').each do |line|
+      Subject.create!(
+        description: line.strip
       )
     end
   end
