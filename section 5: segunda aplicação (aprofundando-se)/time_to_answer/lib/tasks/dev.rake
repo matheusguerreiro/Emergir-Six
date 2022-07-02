@@ -13,6 +13,7 @@ namespace :dev do
       show_spinner('dev:add_default_user')
       show_spinner('dev:create_admins')
       show_spinner('dev:create_default_subjects')
+      show_spinner('dev:create_default_questions')
     end
   end
 
@@ -54,6 +55,18 @@ namespace :dev do
       Subject.create!(
         description: line.strip
       )
+    end
+  end
+
+  desc "create default questions"
+  task create_default_questions: :environment do
+    Subject.all.each do |subject|
+      rand(5..10).times do |i| #criar de 5 a 10 questões por assunto
+        Question.create!(
+          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+          subject: subject
+        )
+      end
     end
   end
 
