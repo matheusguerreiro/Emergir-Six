@@ -1,6 +1,6 @@
 class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :password_verify, only: [:update]
-  before_action :set_admin, only: [:edit, :update]
+  before_action :set_admin, only: [:edit, :update, :destroy]
   
   def index
     @admins = Admin.all
@@ -27,6 +27,14 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
       redirect_to admins_backoffice_admins_path, notice: "admin Cadastrado!"
     else
       render :new
+    end
+  end
+
+  def destroy
+    if @admin.destroy
+      redirect_to admins_backoffice_admins_path, notice: "admin Deletado!"
+    else
+      render :index
     end
   end
   

@@ -20,9 +20,12 @@
           <%= link_to edit_admins_backoffice_admin_path(admin.id), class:"btn btn-primary btn-circle btn-sm" do %>
             <i class="fas fa-edit"></i>
           <% end %>
-          <a href="#" class="btn btn-danger btn-circle btn-sm">
-            <i class="fas fa-minus-square"></i>
-          </a>
+          <%= link_to admins_backoffice_admin_path(admin.id), # o caminho
+              method: :delete,                                # o método
+              data: {confirm:"Tem certeza?"},                 # a confirmação para o delete
+              class:"btn btn-danger btn-circle btn-sm" do %>  <!-- o style bootstrap -->
+            <i class="fas fa-minus-square"></i>               <!-- o ícone fontawesome -->
+          <% end %>
         </td>
       </tr>
     <% end %>
