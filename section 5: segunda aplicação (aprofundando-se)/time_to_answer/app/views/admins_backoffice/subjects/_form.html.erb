@@ -1,0 +1,23 @@
+<h1 class="pb-1"><%= action %></h1>
+
+<% if @subject.errors.any? %>
+  <div style="padding-bottom: 0;" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <ul>
+      <% @subject.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<%= form_with(model: [:admins_backoffice, @subject], local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class:"form-control", placeholder:"descrição"  %>
+    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+<% end %>
