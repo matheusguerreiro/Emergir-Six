@@ -33,6 +33,8 @@ gem 'faker'
 
 gem 'kaminari'
 
+gem "cocoon"
+
 # gem 'pry-rails'
 
 gem 'awesome_print'
