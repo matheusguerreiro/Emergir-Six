@@ -13,7 +13,7 @@ namespace :dev do
       show_spinner('dev:add_default_user')
       show_spinner('dev:create_admins')
       show_spinner('dev:create_default_subjects')
-      show_spinner('dev:create_default_questions')
+      show_spinner('dev:create_default_questions_and_answers')
     end
   end
 
@@ -58,14 +58,28 @@ namespace :dev do
     end
   end
 
-  desc "create default questions"
-  task create_default_questions: :environment do
+  desc "create default questions and answers"
+  task create_default_questions_and_answers: :environment do
     Subject.all.each do |subject|
-      rand(5..10).times do |i| #criar de 5 a 10 questões por assunto
-        Question.create!(
+      rand(5..10).times do |i| # criar de 5 a 10 questões por assunto
+
+        params = {question: { # cria a questão
           description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject
-        )
+          subject: subject,
+          answers_attributes: []
+        }}
+
+        rand(2..4).times do |j| # cria as respostas
+          params[:question][:answers_attributes].push(
+            {description: Faker::Lorem.sentence, correct: false}
+          )
+        end
+
+        # seleciona uma resposta aleatória para ser a correta
+        index = rand(params[:question][:answers_attributes].size)
+        params[:question][:answers_attributes][index] = {description: Faker::Lorem.sentence, correct: true}
+
+        Question.create!(params[:question])
       end
     end
   end
