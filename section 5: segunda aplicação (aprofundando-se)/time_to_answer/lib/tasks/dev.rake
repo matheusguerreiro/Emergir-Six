@@ -63,28 +63,43 @@ namespace :dev do
     Subject.all.each do |subject|
       rand(5..10).times do |i| # criar de 5 a 10 questões por assunto
 
-        params = {question: { # cria a questão
-          description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
-          subject: subject,
-          answers_attributes: []
-        }}
+        params = create_question_params(subject)
+        answers_array = params[:question][:answers_attributes]
 
-        rand(2..4).times do |j| # cria as respostas
-          params[:question][:answers_attributes].push(
-            {description: Faker::Lorem.sentence, correct: false}
-          )
-        end
+        create_question_answers(params, answers_array)
 
         # seleciona uma resposta aleatória para ser a correta
-        index = rand(params[:question][:answers_attributes].size)
-        params[:question][:answers_attributes][index] = {description: Faker::Lorem.sentence, correct: true}
+        create_correct_answer(answers_array)
 
-        Question.create!(params[:question])
+        Question.create!(params[:question]) # cria a questão com as alternativas
       end
     end
   end
 
+
   private
+
+  def create_question_params(subject = Subject.all.sample)
+    {question: { # a questão
+      description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+      subject: subject,
+      answers_attributes: []
+    }}
+  end
+
+  def create_question_answers(params, answers_array = [])
+    rand(2..4).times do |j| # cria as respostas
+      answers_array.push(
+        {description: Faker::Lorem.sentence, correct: false}
+      )
+    end
+  end
+
+  def create_correct_answer(answers_array = [])
+    index = rand(answers_array.size)
+    answers_array[index] = {description: Faker::Lorem.sentence, correct: true}
+  end
+
   def show_spinner(task)
     spinner = TTY::Spinner.new("[:spinner] #{task}")
     spinner.auto_spin
