@@ -23,5 +23,14 @@
     <%= form.text_area :description, class:"form-control", placeholder:"pergunta"  %>
     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
   </div>
+
+  <h3>answers</h3>
+  <div id="answers">
+    <%= form.fields_for :answers do |answer| %>
+      <%= render partial: "answer_fields", locals: {f: answer} %>
+    <% end %>
+    <%= link_to_add_association 'Add Resposta', form, :answers, class:"btn btn-success my-2" %>
+  </div>
+
   <button type="submit" class="btn btn-primary">Salvar</button>
 <% end %>
