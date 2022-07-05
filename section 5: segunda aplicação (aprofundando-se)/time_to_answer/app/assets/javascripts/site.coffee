@@ -4,3 +4,4 @@
 
 //= require jquery/dist/jquery.slim.min
 //= require bootstrap/dist/js/bootstrap.bundle.min
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl.min
