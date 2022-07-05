@@ -5,16 +5,10 @@
 
 <div class="bg-light container-fluid pt-4 pb-2 rounded-bottom">
   <div class="text-left">
-    <% if user_signed_in? %>
-      <p>Usuário: <span class="text-success">LOGADO</span> como <em class="text-success"><%= current_user.email %></em></p>
-    <% else %>
-      <p>Usuário: <span class="text-danger">NÃO LOGADO</span></p>
-    <% end %>
-  
     <% if admin_signed_in? %>
-      <p>Administrador: <span class="text-success">LOGADO</span> como <em class="text-success"><%= current_admin.email %></em></p>
+      <p>Admin: <span class="text-success">LOGADO</span> como <em class="text-success"><%= current_admin.email %></em></p>
     <% else %>
-      <p>Administrador: <span class="text-danger">NÃO LOGADO</span></p>
+      <p>Admin: <span class="text-danger">NÃO LOGADO</span></p>
     <% end %>
   </div>
 </div>
