@@ -1,0 +1,18 @@
+<div class="bg-secondary text-white px-3 pt-3 pb-1 rounded-top">
+  <h1>Site::Search#subject</h1>
+  <p class="text-warning">Find me in app/views/site/welcome/index.html.erb</p>
+  <p class="bg-white text-body rounded">pesquisa para: <span class="text-danger font-weight-bold"><%= params[:subject] %></span></p>
+  <!-- a variável params está disponível tanto no controller quanto na view -->
+</div>
+
+<div class="bg-light container-fluid pt-4 pb-2 rounded-bottom">
+  <div class="text-left">
+    <% if admin_signed_in? %>
+      <p>Admin: <span class="text-success">LOGADO</span> como <em class="text-success"><%= current_admin.email %></em></p>
+    <% else %>
+      <p>Admin: <span class="text-danger">NÃO LOGADO</span></p>
+    <% end %>
+  </div>
+</div>
+
+<%= render partial: 'site/questions' %>
