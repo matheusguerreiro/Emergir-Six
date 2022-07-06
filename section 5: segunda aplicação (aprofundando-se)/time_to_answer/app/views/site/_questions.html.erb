@@ -1,5 +1,5 @@
 <% @questions.each do |question| %>
-  <%= form_with url: site_answer_path, local: true do |form| %>
+  <%= form_with url: site_answer_path do |form| %>
     <div class="mt-3 border rounded text-left">
       <div class="bg-light border-bottom pt-2 pl-2">
         <h5><%= question.description %> (<span class="text-info"><%= question.subject.description %></span>)</h5>
@@ -12,7 +12,7 @@
               <%= answer.description %>
             </li>
           <% end %>
-          <li>
+          <li id="botaoResponder">
             <%= form.submit "Responder", class:"btn btn-info btn-sm mt-2" %>
           </li>
         </ul>
