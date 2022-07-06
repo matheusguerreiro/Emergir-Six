@@ -1,1 +1,7 @@
-<h2>o id da resposta selecionada é: <%= params[:answer] %> </h2>
+<div class="bg-info rounded pt-3 px-3 pb-2">
+  <% if @answer.correct %>
+    <h1 class="bg-light rounded text-success">Acertou!</h1>
+  <% else %>
+    <h1 class="bg-light rounded text-danger">Errou!</h1>
+  <% end %>
+</div>
