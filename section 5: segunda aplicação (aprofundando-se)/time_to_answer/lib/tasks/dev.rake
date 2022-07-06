@@ -76,6 +76,15 @@ namespace :dev do
     end
   end
 
+  desc "reset subjects counter"
+  task reset_subjects_counter: :environment do
+    show_spinner('dev:reset_subjects_counter') do
+      Subject.find_each do |subject|
+        Subject.reset_counters(subject.id, :questions)
+      end
+    end
+  end
+
 
   private
 

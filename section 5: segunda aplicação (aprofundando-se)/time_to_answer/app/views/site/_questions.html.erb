@@ -2,7 +2,7 @@
   <%= form_with url: site_answer_path do |form| %>
     <div class="mt-3 border rounded text-left">
       <div class="bg-light border-bottom pt-2 pl-2">
-        <h5> <%= link_to "#{question.subject.description}(#{question.subject.questions.size})", site_search_subject_path(question.subject_id, question.subject.description), class:"btn btn-secondary rounded-pill" %> <%= question.description %></h5>
+        <h5> <%= link_to "#{question.subject.description} (#{question.subject.questions_count})", site_search_subject_path(question.subject_id, question.subject.description), class:"btn btn-secondary rounded-pill" %> <%= question.description %></h5>
       </div>
       <div class="pt-3">
         <ul class="form-check">
