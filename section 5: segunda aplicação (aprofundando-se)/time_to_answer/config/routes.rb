@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     resources :questions # perguntas
   end
   devise_for :users
-  devise_for :admins
+  devise_for :admins, skip: [:registration]
   get 'inicio', to: 'site/welcome#index'
   root to: 'site/welcome#index' # para adicionar a primeira página no localhost:3000
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
