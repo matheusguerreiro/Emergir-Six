@@ -12,8 +12,8 @@
               <%= answer.description %>
             </li>
           <% end %>
-          <li id="botaoResponder">
-            <%= form.submit "Responder", class:"btn btn-info btn-sm mt-2" %>
+          <li id="paiBotao">
+            <%= form.submit "Responder", class:"btn btn-info btn-sm mt-2", id:"botaoResponder#{question.id}" %>
           </li>
         </ul>
       </div>

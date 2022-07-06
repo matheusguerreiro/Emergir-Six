@@ -1,5 +1,11 @@
-<% if @answer.correct %>
-  alert('Acertou!')
-<% else %>
-  alert('Errou!')
-<% end %>
+var botaoResponder = document.getElementById("botaoResponder<%= @answer.question_id %>")
+
+botaoResponder.classList.remove("btn-info")
+
+if (<%= @answer.correct %>) {
+  botaoResponder.classList.remove("btn-danger")
+  botaoResponder.classList.add("btn-success")
+} else {
+  botaoResponder.classList.remove("btn-success")
+  botaoResponder.classList.add("btn-danger")
+}
