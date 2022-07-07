@@ -8,6 +8,8 @@
 //= require fastclick/lib/fastclick
 //= require nprogress/nprogress
 //= require malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar
+//= require jquery-ui/ui/widgets/datepicker
+//= require jquery-ui/ui/i18n/datepicker-pt-BR
 //= require custom.min
 
 # <!-- jQuery v2.2.4 --> <!-- não instalado -->
