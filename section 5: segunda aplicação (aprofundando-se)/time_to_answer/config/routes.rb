@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins, skip: [:registration]
   get 'inicio', to: 'site/welcome#index'
+  get 'backoffice', to: 'admins_backoffice/welcome#index'
   root to: 'site/welcome#index' # para adicionar a primeira página no localhost:3000
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
