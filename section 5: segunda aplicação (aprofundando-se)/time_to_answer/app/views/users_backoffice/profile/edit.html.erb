@@ -10,26 +10,48 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
-        <br>
-        <form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="">
+        <% if @user.errors.any? %>
+          <div style="padding-bottom: 0;" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+        <!-- <form class="form-horizontal form-label-left"> -->
+        <%= form_with(url: users_backoffice_profile_path, model: @user, local: true, class:"form-horizontal form-label-left") do |form| %>
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">First Name <span class="required">*</span>
-            </label>
+            <%= form.label :first_name, class:"col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" value="<%= @user.first_name %>" id="first-name" required="required" class="form-control parsley-error" data-parsley-id="5"><ul class="parsley-errors-list filled" id="parsley-id-5"><li class="parsley-required">This value is required.</li></ul>
+              <%= form.text_field :first_name, class:"form-control" %>
             </div>
           </div>
           <div class="item form-group">
-            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Last Name <span class="required">*</span>
-            </label>
+            <%= form.label :last_name, class:"col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6 ">
-              <input type="text" value="<%= @user.last_name %>" id="last-name" name="last-name" required="required" class="form-control parsley-error" data-parsley-id="7"><ul class="parsley-errors-list filled" id="parsley-id-7"><li class="parsley-required">This value is required.</li></ul>
+              <%= form.text_field :last_name, class:"form-control" %>
             </div>
           </div>
           <div class="item form-group">
-            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Email</label>
+            <%= form.label :email, class:"col-form-label col-md-3 col-sm-3 label-align" %>
             <div class="col-md-6 col-sm-6 ">
-              <input id="middle-name" value="<%= @user.email %>" class="form-control" type="email" name="middle-name" data-parsley-id="9">
+              <%= form.text_field :email, class:"form-control", readonly: true %>
+            </div>
+          </div>
+          <div class="item form-group">
+            <%= form.label :password, class:"col-form-label col-md-3 col-sm-3 label-align" %>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.text_field :password, class:"form-control" %>
+            </div>
+          </div>
+          <div class="item form-group">
+            <%= form.label :password_confirmation, class:"col-form-label col-md-3 col-sm-3 label-align" %>
+            <div class="col-md-6 col-sm-6 ">
+              <%= form.text_field :password_confirmation, class:"form-control" %>
             </div>
           </div>
           <div class="ln_solid"></div>
@@ -41,7 +63,7 @@
             </div>
           </div>
 
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
