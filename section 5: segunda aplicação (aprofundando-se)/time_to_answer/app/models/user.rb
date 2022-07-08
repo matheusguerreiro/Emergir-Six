@@ -9,9 +9,19 @@ class User < ApplicationRecord
   # , allow_destroy: true
   # user vai aceitar atributos da tabela user_profile
 
+  after_create :set_statistic
+
   validates :first_name, presence: true, length: {minimum:3}, on: :update
 
   def full_name
     [self.first_name, self.last_name].join(" ")
   end
+
+
+  private
+
+  def set_statistic
+    AdminStatistic.set_total(AdminStatistic::EVENTS[:total_users])
+  end
+
 end

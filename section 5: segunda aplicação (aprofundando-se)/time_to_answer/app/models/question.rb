@@ -3,6 +3,8 @@ class Question < ApplicationRecord
   has_many :answers
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: true
 
+  after_create :set_statistic
+
   paginates_per 5
 
   # def self.search(page, term)
@@ -31,5 +33,11 @@ class Question < ApplicationRecord
 
   # obs: como self é = a Question, podemos tirar o Question fora. exemplo: self.last_questions(page)
   # obs: podemos transformar para scope ao invés de self.search(page, term), somente porque estamos fazendo pesquisa, caso contrário usamos o self.nome(..., ...)
+
+  private
+
+  def set_statistic
+    AdminStatistic.set_total(AdminStatistic::EVENTS[:total_questions])
+  end
 
 end
