@@ -20,6 +20,12 @@
     </div>
   <% end %>
 <% end %>
-<div class="d-flex justify-content-center">
-  <%= paginate @questions %>
-</div>
+<% if user_signed_in? %>
+  <div class="d-flex justify-content-center">
+    <%= paginate @questions %>
+  </div>
+<% else %>
+  <div class="alert alert-danger mt-3" role="alert">
+    Efetue Log in...
+  </div>
+<% end %>
