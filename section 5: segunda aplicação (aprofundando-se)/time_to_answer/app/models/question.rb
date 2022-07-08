@@ -5,7 +5,7 @@ class Question < ApplicationRecord
 
   after_create :set_statistic
 
-  paginates_per 5
+  paginates_per 25
 
   # def self.search(page, term)
   #   Question.includes(:answers)
