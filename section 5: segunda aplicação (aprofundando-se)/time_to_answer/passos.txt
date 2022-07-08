@@ -6,3 +6,5 @@ rails new time_to_answer || rails new nome_aplicação -T - para criar app sem g
 time_to_answer
   rails g controller welcome index - para gerar a primeira página
     time_to_answer/config/routes.rb - aqui para ajeitar a rota
+
+git add . && git commit -m '' && git push && git status
