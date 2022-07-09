@@ -94,6 +94,8 @@ GEM
     ffi (1.15.5-x86-mingw32)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    hiredis (0.6.3)
+    hiredis (0.6.3-java)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.1)
@@ -201,6 +203,7 @@ GEM
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.7.1)
     regexp_parser (2.5.0)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -289,6 +292,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   faker
+  hiredis
   jbuilder (~> 2.5)
   kaminari
   listen (>= 3.0.5, < 3.2)
@@ -297,6 +301,7 @@ DEPENDENCIES
   rails (~> 5.2.8)
   rails-i18n (~> 5.1)
   rails_db (= 2.3.1)
+  redis
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

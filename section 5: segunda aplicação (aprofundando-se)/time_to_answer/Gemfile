@@ -29,6 +29,9 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'devise'
 
+gem 'redis'
+gem 'hiredis'
+
 gem 'faker'
 
 gem 'kaminari'
