@@ -35,6 +35,8 @@ gem 'kaminari'
 
 gem "cocoon"
 
+gem "prawn-rails"
+
 # gem 'pry-rails'
 
 gem 'awesome_print'
