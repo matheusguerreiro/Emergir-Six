@@ -14,6 +14,7 @@ namespace :dev do
       show_spinner('dev:create_admins')
       show_spinner('dev:create_default_subjects')
       show_spinner('dev:create_default_questions_and_answers')
+      # show_spinner('dev:add_answers_to_redis')
     end
   end
 
@@ -87,12 +88,22 @@ namespace :dev do
     end
   end
 
+  # desc "add answers to redis"
+  # task add_answers_to_redis: :environment do
+  #   show_spinner('dev:add_answers_to_redis') do
+  #     Answer.find_each do |answer|
+  #       Rails.cache.write(answer.id, "#{answer.question_id}@@#{answer.correct}")
+  #     end
+  #   end
+  # end
+
 
   private
 
   def create_question_params(subject = Subject.all.sample)
     {question: { # a questão
       description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
+      weight: rand(1..2),
       subject: subject,
       answers_attributes: []
     }}
