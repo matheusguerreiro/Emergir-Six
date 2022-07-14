@@ -41,7 +41,7 @@ class AdminsBackoffice::QuestionsController < AdminsBackofficeController
 
   private
   def params_question
-    params.require(:question).permit(:description, :subject_id, answers_attributes: [:id, :description, :correct, :_destroy], :weight)
+    params.require(:question).permit(:description, :subject_id, :weight, answers_attributes: [:id, :description, :correct, :_destroy])
   end
 
   def get_subjects

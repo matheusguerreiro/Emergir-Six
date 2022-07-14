@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :admins # todas as rotas
     resources :subjects # assuntos/áreas
     resources :questions # perguntas
+    resources :tests # provas
   end
   devise_for :users
   devise_for :admins, skip: [:registration]

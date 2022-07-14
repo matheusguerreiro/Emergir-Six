@@ -1,0 +1,29 @@
+<h1 class="pb-1"><%= action %></h1>
+
+<% if @test.errors.any? %>
+  <div style="padding-bottom: 0;" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <ul>
+      <% @test.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% end %>
+
+<%= form_with(model: [:admins_backoffice, @test], local: true) do |form| %>
+  <div class="form-group">
+    <%= form.label "Assunto" %>
+    <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, {class:"form-control"}) %>
+  </div>
+  <div class="form-group">
+    <%= form.label "Descrição" %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Prova de ..." %>
+  </div>
+
+  
+
+  <button type="submit" class="btn btn-primary">Salvar</button>
+<% end %>

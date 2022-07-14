@@ -14,6 +14,7 @@ namespace :dev do
       show_spinner('dev:create_admins')
       show_spinner('dev:create_default_subjects')
       show_spinner('dev:create_default_questions_and_answers')
+      show_spinner('dev:add_two_tests')
       # show_spinner('dev:add_answers_to_redis')
     end
   end
@@ -64,7 +65,7 @@ namespace :dev do
   desc "create default questions and answers"
   task create_default_questions_and_answers: :environment do
     Subject.all.each do |subject|
-      rand(5..10).times do |i| # criar de 5 a 10 questões por assunto
+      rand(2..4).times do |i| # criar de 5 a 10 questões por assunto
 
         params = create_question_params(subject)
         answers_array = params[:question][:answers_attributes]
@@ -96,6 +97,16 @@ namespace :dev do
   #     end
   #   end
   # end
+
+  desc "add two tests"
+  task add_two_tests: :environment do
+    5.times do |i|
+      subject = Subject.all.sample
+      Test.create!([
+        {description: "prova #{i}", subject: subject}
+      ])
+    end
+  end
 
 
   private
