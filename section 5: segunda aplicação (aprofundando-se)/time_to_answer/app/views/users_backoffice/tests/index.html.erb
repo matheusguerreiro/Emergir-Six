@@ -1,0 +1,38 @@
+<h1 class="pb-3">Provas</h1>
+<table class="table table-striped rounded table-secondary">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">descrição</th>
+      <th scope="col">assunto</th>
+      <th scope="col">
+        <!-- <%= link_to new_admins_backoffice_test_path, class:"btn btn-success btn-circle btn-sm" do %>
+          <div class="icon"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
+        <% end %> -->
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tests.each do |test| %>
+      <tr scope="row">
+        <td><%= test.id %></td>
+        <td><%= test.description %></td>
+        <td><%= test.subject.description %></td>
+        <td style="padding: 6px 0px 0px 0px;">
+          <%= link_to users_backoffice_path(test.id) do %>
+            <div class="btn btn-info btn-sm">Começar Avaliação</div>
+          <% end %>
+          <!-- <%= link_to admins_backoffice_test_path(test.id),
+              method: :delete,
+              data: {confirm:"Tem certeza?"},
+              class:"btn btn-danger btn-circle btn-sm" do %>
+            <i class="fas fa-minus-square"></i>
+          <% end %> -->
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="d-flex justify-content-center">
+  <%= paginate @tests %>
+</div>

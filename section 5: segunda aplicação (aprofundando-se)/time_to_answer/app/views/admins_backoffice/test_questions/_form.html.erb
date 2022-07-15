@@ -1,0 +1,11 @@
+<h1 class="pb-1"><%= action %></h1>
+
+<%= form_with(model: [:admins_backoffice, @test], local: true) do |form| %>
+  <div class="form-group">
+    <%= form.fields_for :questions do |question| %>
+      <%= render partial: "questions", local: {form: question} %>
+    <% end %>
+  </div>
+
+  <button type="submit" class="btn btn-success">Salvar</button>
+<% end %>

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     get 'profile', to: 'profile#edit'
     patch 'profile', to: 'profile#update'
     get 'zip_code', to: 'zip_code#show'
+    get 'tests', to: 'tests#index'
+    get 'tests/:id', to: 'tests#make'
+    post 'tests/:id', to: 'tests#make'
   end
   namespace :admins_backoffice do
     get 'welcome/index' # dashboard
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
     resources :subjects # assuntos/áreas
     resources :questions # perguntas
     resources :tests # provas
+    resources :test_questions
   end
   devise_for :users
   devise_for :admins, skip: [:registration]

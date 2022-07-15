@@ -1,1 +1,25 @@
-<%= render partial: 'admins_backoffice/tests/form', locals: {action: 'Editar Prova'} %>
+<%= form_with(model: [ :admins_backoffice, @test], local: true) do |form|%>
+  <div class="form-group">
+    <%= form.label "Descrição" %>
+    <%= form.text_field :description, class:"form-control", placeholder:"Nome da prova", id:"_name" %>
+  </div>
+
+  <div>
+    <%=form.label "Assunto" %>
+    <%= form.collection_select(:subject_id, @subjects, :id, :description, {}, class:"form-control", disabled:true) %>
+      <%= form.submit "Enviar", class:"btn btn-primary mt-3"%>
+      <hr>
+      <%= link_to admins_backoffice_test_questions_path(test: @test, id: @test.subject_id), class: "btn btn-success" do %>
+        Add questões
+      <% end %>
+    </div>
+<% end %>
+  <hr>
+  <% if @questions.size > 0 %>
+    <h3>Questões da prova <span><u><%= "#{@test.description}" %></u></span></h3>
+    <% @questions.each do |question|%>
+      <%= sanitize question.description %> <br>
+    <% end %>
+  <% else %>
+    <h3 class="bg-warning text-danger rounded p-1 pl-2">Prova sem questões...</h3>
+  <% end %>

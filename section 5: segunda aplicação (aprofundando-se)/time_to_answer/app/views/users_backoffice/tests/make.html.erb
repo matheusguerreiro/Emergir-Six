@@ -1,0 +1,27 @@
+<div>
+  <h2><%= @test.description %></h2>
+</div>
+<%= form_with url: users_backoffice_path, local:true do |form| %>
+  <% @questions.each do |question| %>
+    <div class="card mb-3">
+      <h5 class="card-header">
+        Questão
+        <%= question.id %>
+      </h5>
+      <div class="card-body">
+        <h5 class="card-title"><%= sanitize question.description %></h5>
+        <hr>
+        <ul style="list-style: none;">
+          <% question.answers.each do |answer| %>
+            <li>
+              <%= radio_button_tag "form_questions[#{question.id}][]", question.id %>
+              <span class="card-text"><%= answer.description %></span>
+            </li>
+          <% end %>
+          <hr>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <%= form.submit "Enviar", class:"btn btn-success" %>
+<% end %>

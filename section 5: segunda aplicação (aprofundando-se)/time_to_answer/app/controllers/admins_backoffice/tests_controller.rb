@@ -1,9 +1,10 @@
 class AdminsBackoffice::TestsController < AdminsBackofficeController
   before_action :set_test, only: [:edit, :update, :destroy]
   before_action :get_subjects, only: [:edit, :new]
+  before_action :get_questions, only: [:edit, :new]
 
   def index
-    @tests = Test.includes(:subject).order(:description).page(params[:page])
+    @tests = Test.includes(:subject).includes(:questions).order(:created_at).page(params[:page])
   end
 
   def new
@@ -11,6 +12,8 @@ class AdminsBackoffice::TestsController < AdminsBackofficeController
   end
 
   def edit
+    questions_ids = @test.question_ids
+    @questions = Question.find(questions_ids)
   end
 
   def create
@@ -23,14 +26,19 @@ class AdminsBackoffice::TestsController < AdminsBackofficeController
   end
 
   def update
-    if @test.update(test_params)
-      redirect_to admins_backoffice_tests_path, notice: "Prova atualizada!"
+    if params[:test]
+      if @test.update(test_params)
+        redirect_to admins_backoffice_tests_path, notice: "Prova atualizada!"
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to edit_admins_backoffice_test_path, notice: "Prova sem questões!"
     end
   end
 
   def destroy
+    @test.questions.clear
     if @test.destroy
       redirect_to admins_backoffice_tests_path, notice: "Prova deletada!"
     else
@@ -42,6 +50,10 @@ class AdminsBackoffice::TestsController < AdminsBackofficeController
   private
   def get_subjects
     @subjects = Subject.all
+  end
+
+  def get_questions
+    @questions = Question.all
   end
 
   def test_params

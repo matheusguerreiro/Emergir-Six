@@ -1,0 +1,8 @@
+<div>
+  <%= form.label "Add Questões" %>
+  <% for question in @questions %>
+    <%= check_box_tag "test[question_ids][]", question.id, @test.questions.include?(question) %>
+    <%= question.description %>
+    <h1>rrrrrrrrrrrrrrrrrrrrrr</h1>
+  <% end %>
+</div>
