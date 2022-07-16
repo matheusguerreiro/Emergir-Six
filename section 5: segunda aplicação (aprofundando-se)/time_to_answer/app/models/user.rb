@@ -5,9 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :user_profile, :dependent => :destroy
+  has_many :user_tests
+  has_many :tests, through: :user_tests
+  
   accepts_nested_attributes_for :user_profile, reject_if: :all_blank
-  # , allow_destroy: true
-  # user vai aceitar atributos da tabela user_profile
 
   after_create :set_statistic
 

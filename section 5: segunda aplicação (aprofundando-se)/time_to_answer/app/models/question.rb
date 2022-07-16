@@ -3,8 +3,8 @@ class Question < ApplicationRecord
   has_many :answers
   has_many :test_questions
   has_many :tests, through: :test_questions
+
   accepts_nested_attributes_for :answers, reject_if: :all_blank, allow_destroy: true
-  
 
   after_create :set_statistic
 

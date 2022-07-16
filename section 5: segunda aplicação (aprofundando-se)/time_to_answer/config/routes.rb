@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     get 'zip_code', to: 'zip_code#show'
     get 'tests', to: 'tests#index'
     get 'tests/:id', to: 'tests#make'
-    post 'tests/:id', to: 'tests#make'
+    post 'tests/:id', to: 'tests#verify'
+    get 'tests/:id/result', to: 'tests#result'
+    get 'tests/:id/show', to: 'tests#show'
   end
   namespace :admins_backoffice do
     get 'welcome/index' # dashboard

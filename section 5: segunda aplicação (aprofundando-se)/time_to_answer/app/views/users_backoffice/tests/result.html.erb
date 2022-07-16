@@ -1,0 +1,16 @@
+<h1>Resultado da Prova (<%= @test.description %>) </h1>
+<hr>
+
+<% if @final > 7 %>
+  <h3 style="color: rgb(0, 127, 0); background-color: rgba(0, 255, 0, 0.2); padding: 10px 15px; border: 1px solid rgb(0, 127, 0); border-radius: 5px;">
+    Aprovado com Nota: <span style="font-weight: bold;"><%= @final %></span>
+  </h3>
+<% else %>
+  <h3 style="color: rgb(127, 0, 0); background-color: rgba(255, 0, 0, 0.2); padding: 10px 15px; border: 1px solid rgb(127, 0, 0); border-radius: 5px;">
+    Reprovado com Nota: <span style="font-weight: bold;"><%= @final %></span>
+  </h3>
+<% end %>
+
+<%= link_to "Ver (#{@test.description})", "#{users_backoffice_path}/show", class:"btn btn-info" %>
+
+<%= link_to 'Retornar para Provas', users_backoffice_tests_path, class:"btn btn-primary" %>
