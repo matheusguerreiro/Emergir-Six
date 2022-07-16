@@ -4,8 +4,9 @@ class UsersBackoffice::TestsController < UsersBackofficeController
   before_action :set_result, only: [:result, :show]
 
   def index
-    @tests = Test.includes(:subject).includes(:questions).order(:created_at).page(params[:page])
-
+    # console
+    @tests = Test.includes(:subject).includes(:questions).page(params[:page])
+    @user = User.find(current_user.id)
   end
 
   def make
@@ -25,7 +26,7 @@ class UsersBackoffice::TestsController < UsersBackofficeController
   end
 
   def result
-    
+    UserTest.set_user_test(current_user.id, @test.id)
   end
 
   def show
@@ -39,7 +40,6 @@ class UsersBackoffice::TestsController < UsersBackofficeController
     end
 
     def test_params
-      # params.require(:test).permit(:subject_id, :id)
       params.require(:form_questions).permit!
     end
 

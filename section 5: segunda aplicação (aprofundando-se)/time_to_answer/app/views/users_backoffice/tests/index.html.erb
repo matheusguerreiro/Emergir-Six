@@ -6,9 +6,7 @@
       <th scope="col">descrição</th>
       <th scope="col">assunto</th>
       <th scope="col">
-        <!-- <%= link_to new_admins_backoffice_test_path, class:"btn btn-success btn-circle btn-sm" do %>
-          <div class="icon"><i class="fa fa-plus-circle" aria-hidden="true"></i></div>
-        <% end %> -->
+        
       </th>
     </tr>
   </thead>
@@ -19,15 +17,11 @@
         <td><%= test.description %></td>
         <td><%= test.subject.description %></td>
         <td style="padding: 6px 0px 0px 0px;">
-          <%= link_to users_backoffice_path(test.id) do %>
-            <div class="btn btn-info btn-sm">Começar Avaliação</div>
+          <% if @user.test_ids.include?(test.id) %>
+            <%= link_to "Ver Prova", "/users_backoffice/tests/#{test.id}/show", class:"btn btn-primary btn-sm" %>
+          <% else %>
+            <%= link_to "Fazer Prova", users_backoffice_path(test.id), class:"btn btn-info btn-sm" %>
           <% end %>
-          <!-- <%= link_to admins_backoffice_test_path(test.id),
-              method: :delete,
-              data: {confirm:"Tem certeza?"},
-              class:"btn btn-danger btn-circle btn-sm" do %>
-            <i class="fas fa-minus-square"></i>
-          <% end %> -->
         </td>
       </tr>
     <% end %>
