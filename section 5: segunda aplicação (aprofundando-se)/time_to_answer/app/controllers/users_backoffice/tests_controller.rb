@@ -48,19 +48,19 @@ class UsersBackoffice::TestsController < UsersBackofficeController
     end
 
     def set_result
-      crazyQuery = TestAnswer.select(:question_id, :answer_id).where(:user_id => current_user.id, :test_id => @test.id).to_a
+      questionsIds_answersIds_from_userId_and_testId = TestAnswer.select(:question_id, :answer_id).where(:user_id => current_user.id, :test_id => @test.id).to_a
     
-      @myCrazyHash = {}
+      @questions_and_answers_from_userId = {}
 
-      crazyQuery.each do |query|
-        @myCrazyHash[query.question_id] = query.answer_id
+      questionsIds_answersIds_from_userId_and_testId.each do |query|
+        @questions_and_answers_from_userId[query.question_id] = query.answer_id
       end
 
-      # correct answers
-      @corrects = Answer.select(:id).where(:id => @myCrazyHash.values, :correct => true).to_a
+      # corretas
+      @corrects = Answer.select(:id).where(:id => @questions_and_answers_from_userId.values, :correct => true).to_a
 
-      # weights
-      heyhey = Question.select(:id, :weight).where(:id => @myCrazyHash.keys).to_a
+      # pesos
+      heyhey = Question.select(:id, :weight).where(:id => @questions_and_answers_from_userId.keys).to_a
 
       @weights = {}
       heyhey.each do |w|
@@ -69,7 +69,7 @@ class UsersBackoffice::TestsController < UsersBackofficeController
       
       test = []
       @corrects.each do |correct|
-        response = @myCrazyHash.key(correct.id)
+        response = @questions_and_answers_from_userId.key(correct.id)
         test.push( @weights[response] )
       end
 

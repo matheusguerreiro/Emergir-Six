@@ -18,9 +18,9 @@
         <td><%= test.subject.description %></td>
         <td style="padding: 6px 0px 0px 0px;">
           <% if @user.test_ids.include?(test.id) %>
-            <%= link_to "Ver Prova", "/users_backoffice/tests/#{test.id}/show", class:"btn btn-primary btn-sm" %>
+            <%= link_to "Ver Prova", "/users_backoffice/tests/#{test.id}/show", class:"btn btn-info btn-sm" %>
           <% else %>
-            <%= link_to "Fazer Prova", users_backoffice_path(test.id), class:"btn btn-info btn-sm" %>
+            <%= link_to "Fazer Prova", users_backoffice_path(test.id), class:"btn btn-success btn-sm" %>
           <% end %>
         </td>
       </tr>

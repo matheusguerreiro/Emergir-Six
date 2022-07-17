@@ -9,7 +9,10 @@
         <%= question.id %>
       </h5>
       <div class="card-body">
-        <h5 class="card-title"><%= sanitize question.description %></h5>
+        <div class="d-flex">
+          <h5 class="card-title d-flex justify-content-between"><%= sanitize question.description %></h5>
+        </div>
+        <span style="position: absolute; right: 21px;">Peso: <%= question.weight %></span>
         <hr>
         <ul style="list-style: none;">
           <% question.answers.each do |answer| %>

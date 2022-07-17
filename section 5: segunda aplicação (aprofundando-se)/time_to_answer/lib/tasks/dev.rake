@@ -65,7 +65,7 @@ namespace :dev do
   desc "create default questions and answers"
   task create_default_questions_and_answers: :environment do
     Subject.all.each do |subject|
-      rand(2..4).times do |i| # criar questões por assunto
+      10.times do |i| # criar questões por assunto
 
         params = create_question_params(subject)
         answers_array = params[:question][:answers_attributes]
@@ -121,7 +121,7 @@ namespace :dev do
   end
 
   def create_question_answers(params, answers_array = [])
-    rand(2..4).times do |j| # cria as respostas
+    5.times do |j| # cria as respostas
       answers_array.push(
         {description: Faker::Lorem.sentence, correct: false}
       )
