@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :subject, counter_cache: true, inverse_of: :questions
+  
   has_many :answers
   has_many :test_questions
   has_many :tests, through: :test_questions
