@@ -5,8 +5,6 @@ class AdminsBackoffice::TestsController < AdminsBackofficeController
 
   def index
     @tests = Test.includes(:subject).includes(:questions).order(:created_at).page(params[:page])
-    @user_test = UserTest.where(user_id: current_user.id)
-    ee = ffe
   end
 
   def new

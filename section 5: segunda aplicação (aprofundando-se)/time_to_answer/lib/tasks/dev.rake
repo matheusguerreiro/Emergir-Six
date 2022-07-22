@@ -103,7 +103,7 @@ namespace :dev do
     5.times do |i|
       subject = Subject.all.sample
       Test.create!([
-        {description: "#{subject.description} #{i}", subject: subject}
+        {description: "#{subject.description} #{i}", subject: subject, question_ids: [Question.all[0].id, Question.all[1].id, Question.all[2].id]}
       ])
     end
   end

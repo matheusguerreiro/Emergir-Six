@@ -22,7 +22,7 @@
       <ul style="list-style: none;">
         <% question.answers.each do |answer| %>
           <li>
-            <%= radio_button_tag "form_questions[#{answer.id}][]", answer.id, (@user_test.answer_ids.include?(answer.id)), disabled: true %>
+            <%= radio_button_tag "form_questions[#{question.id}][]", answer.id, (@user_test.answer_ids.include?(answer.id)), disabled: true %>
             <span class="card-text"><%= answer.description %></span>
           </li>
         <% end %>
@@ -31,4 +31,3 @@
     </div>
   </div>
 <% end %>
-<%= link_to 'Ver Status da Nota', "/users_backoffice/tests/#{params[:id]}/result", class:"btn btn-info" %>
