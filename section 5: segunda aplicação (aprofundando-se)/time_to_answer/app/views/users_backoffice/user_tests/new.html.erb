@@ -1,0 +1,33 @@
+<div>
+  <h2><%= @test.description %></h2>
+</div>
+<!-- aqui eu monto o teste do usuário com as devidas respostas, ou seja... monto uma resposta do teste desse usuário -->
+<%= form_for([:users_backoffice, @test, @user_test], local: true) do |form| %>
+  <% @test.questions.each do |question| %>
+    <div class="card mb-3">
+      <h5 class="card-header">
+        Questão
+        <%= question.id %>
+      </h5>
+      <div class="card-body">
+        <div class="d-flex">
+          <h5 class="card-title d-flex justify-content-between"><%= question.description %></h5>
+        </div>
+        <span style="position: absolute; right: 21px;">Peso: <%= question.weight %></span>
+        <hr>
+        <%= form.fields_for :test_answers do |test_answer_subform| %>
+          <ul style="list-style: none;">
+            <% question.answers.each do |answer| %>
+              <li>
+                <%= test_answer_subform.radio_button :answer_id, answer.id %>
+                <span class="card-text"><%= answer.description %></span>
+              </li>
+            <% end %>
+            <hr>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <%= form.submit "Enviar", class:"btn btn-success" %>
+<% end %>

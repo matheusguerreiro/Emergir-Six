@@ -15,10 +15,13 @@ Rails.application.routes.draw do
     patch 'profile', to: 'profile#update'
     get 'zip_code', to: 'zip_code#show'
     get 'tests', to: 'tests#index'
-    get 'tests/:id', to: 'tests#make'
-    post 'tests/:id', to: 'tests#verify'
-    get 'tests/:id/result', to: 'tests#result'
-    get 'tests/:id/show', to: 'tests#show'
+    # get 'tests/:id', to: 'tests#make'
+    # post 'tests/:id', to: 'tests#verify'
+    # get 'tests/:id/result', to: 'tests#result'
+    # get 'tests/:id/show', to: 'tests#show'
+    resources :tests do
+      resources :user_tests
+    end
   end
   namespace :admins_backoffice do
     get 'welcome/index' # dashboard

@@ -14,7 +14,7 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
       end
     else
       render :edit
-    end    
+    end
   end
 
 
