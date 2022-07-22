@@ -4,11 +4,8 @@ class UsersBackoffice::TestsController < UsersBackofficeController
   before_action :set_result, only: [:result, :show]
 
   def index
-    # console
     @tests = Test.includes(:subject).includes(:questions).page(params[:page])
   end
-
-  
 
   def show
 

@@ -7,4 +7,6 @@ class UserTest < ApplicationRecord
 
   accepts_nested_attributes_for :test_answers
 
+  # aqui a função de calcular a média...
+
 end
