@@ -1,13 +1,41 @@
 rails _5.2_ new notebook-api --api
 
 rails g scaffold Contact name:string email:string birthdate:date
-
 rails db:migrate
 
 gem 'faker'       -> Gemfile
 gem 'tty-spinner' -> Gemfile
-
 bundle install OU bundle
 
 rails -T = todas as tarefas disponiveis
 rails g task dev setup
+
+def show_spinner -> lib/tasks/dev.rake
+def add_contacts -> lib/tasks/dev.rake
+
+rails g migration add_kind_to_contact kind:references
+rails g scaffold Kind description:string
+rails db:migrate
+
+belongs_to :kind   -> models/contact
+has_many :contacts -> models/kind
+
+def add_kinds -> lib/tasks/dev.rake
+  e colocar antes do add_contacts
+
+liberar :kind no controller contacts
+POST precisa de kind_id
+
+rails g model Phone number:string contact:references
+
+belongs_to :contact, optional: true -> models/phone
+
+has_many :phones                      -> models/contact
+accepts_nested_attributes_for :phones -> models/contact
+  ajustar permissão no params_contact em controller contacts
+
+rails g model Address street:string city:string contact:references
+  add_addresses na task
+
+has_one :address                                          -> models/contact
+accepts_nested_attributes_for :address, update_only: true -> models/contact
