@@ -1,0 +1,13 @@
+rails _5.2_ new notebook-api --api
+
+rails g scaffold Contact name:string email:string birthdate:date
+
+rails db:migrate
+
+gem 'faker'       -> Gemfile
+gem 'tty-spinner' -> Gemfile
+
+bundle install OU bundle
+
+rails -T = todas as tarefas disponiveis
+rails g task dev setup
